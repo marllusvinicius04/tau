@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAU — Caderno inteligente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" class="auth">
+  <div class="auth-card">
+    <div class="brand">T<span>AU</span></div>
+    <p>Caderno inteligente para quem estuda de verdade.</p>
+    <form id="loginForm">
+      <input id="email" type="email" placeholder="E-mail" required>
+      <input id="password" type="password" placeholder="Senha" required>
+      <button class="primary">Entrar</button>
+      <button type="button" class="secondary" id="openRegister">Criar minha conta</button>
+    </form>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside>
+    <div class="brand">T<span>AU</span></div>
+    <nav>
+      <button data-page="home" class="active">⌂ <span>Início</span></button>
+      <button data-page="subjects">▦ <span>Matérias</span></button>
+      <button data-page="review">✓ <span>Revisar</span></button>
+      <button data-page="reminders">◷ <span>Lembretes</span></button>
+      <button data-page="questions">? <span>Perguntas</span></button>
+      <button data-page="materials">□ <span>Materiais</span></button>
+      <button data-page="important">▰ <span>Importantes</span></button>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <input id="search" placeholder="Pesquisar no TAU...">
+      <div class="user"><div id="avatar">T</div><strong id="userName">Estudante</strong></div>
+    </header>
+
+    <section id="home" class="page active">
+      <h1 id="hello">Bom dia.</h1><p class="muted">Seu estudo, organizado.</p>
+      <div class="stats">
+        <div class="card"><small>Matérias</small><b id="nSubjects">0</b></div>
+        <div class="card"><small>Anotações</small><b id="nNotes">0</b></div>
+        <div class="card"><small>Importantes</small><b id="nImportant">0</b></div>
+        <div class="card"><small>Lembretes</small><b id="nReminders">0</b></div>
+      </div>
+      <div class="section-title"><h2>Continuar estudando</h2><button class="link" data-go="subjects">Ver matérias</button></div>
+      <div id="recent" class="cards"></div>
+      <div class="section-title"><h2>Próximos lembretes</h2><button class="link" data-go="reminders">Ver todos</button></div>
+      <div id="nextReminders" class="cards"></div>
+    </section>
+
+    <section id="subjects" class="page">
+      <div class="section-title"><div><h1>Minhas matérias</h1><p class="muted">Tudo organizado por disciplina.</p></div><button class="primary" id="newSubject">+ Nova matéria</button></div>
+      <div id="subjectsList" class="cards"></div>
+    </section>
+
+    <section id="subjectDetail" class="page"></section>
+
+    <section id="review" class="page">
+      <h1>Revisar</h1><p class="muted">Volte ao que você marcou e registrou.</p>
+      <div id="reviewList" class="section"></div>
+    </section>
+
+    <section id="reminders" class="page">
+      <div class="section-title"><div><h1>Lembretes</h1><p class="muted">Receba alertas por e-mail.</p></div><button class="primary" id="newReminder">+ Lembrete</button></div>
+      <div id="remindersList" class="cards"></div>
+    </section>
+
+    <section id="questions" class="page">
+      <h1>Perguntas</h1><p class="muted">Perguntas universais para estudar qualquer tema.</p>
+      <div id="questionsList" class="cards section"></div>
+    </section>
+
+    <section id="materials" class="page">
+      <div class="section-title"><div><h1>Materiais</h1><p class="muted">Slides, PDFs e arquivos.</p></div><button class="primary" id="newMaterial">+ Material</button></div>
+      <div id="materialsList" class="cards"></div>
+    </section>
+
+    <section id="important" class="page">
+      <h1>Importantes</h1><p class="muted">Trechos marcados com o marca-texto.</p>
+      <div id="importantList" class="section"></div>
+    </section>
+  </main>
+
+  <nav class="bottom">
+    <button data-page="home">⌂<small>Início</small></button>
+    <button data-page="subjects">▦<small>Matérias</small></button>
+    <button id="quick">+<small>Adicionar</small></button>
+    <button data-page="review">✓<small>Revisar</small></button>
+    <button data-page="reminders">◷<small>Lembretes</small></button>
+  </nav>
+</div>
+
+<div id="modal" class="modal"><div id="modalBox" class="modal-box"></div></div>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
